@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <div v-html="mess"></div>
+    <input type="button" value="改变" @click="f1()">
+    <input type="button" value="改变2" @click="f2()">
+    <a :href="url">ghj</a>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            mess:"yyyyyy",
+            url:'https://www.baidu.com'
+        },
+        methods:{
+            f1(){
+               alert("鼠标移入了")
+            },
+            f2(){
+                if(this.mess){
+                    console.log("我是true");
+                }else{
+                    console.log("我是FALSE");
+                }
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

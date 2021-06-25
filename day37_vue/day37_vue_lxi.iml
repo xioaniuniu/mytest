@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../day37_vue_lxi/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../day37_vue_lxi/web" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../day37_vue_lxi">
+      <sourceFolder url="file://$MODULE_DIR$/../day37_vue_lxi/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../day37_vue_lxi/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/web/lib/servlet-api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/web/lib/fastjson-1.2.39.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="commons-dbutils-1.4 (2)">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../day37_vue_lxi/web/WEB-INF/lib/commons-dbutils-1.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../day37_vue_lxi/web/WEB-INF/lib/druid-1.0.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/../day37_vue_lxi/web/WEB-INF/lib/fastjson-1.2.39.jar!/" />
+          <root url="jar://$MODULE_DIR$/../day37_vue_lxi/web/WEB-INF/lib/mysql-connector-java-5.1.37-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

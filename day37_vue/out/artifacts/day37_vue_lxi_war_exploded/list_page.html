@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!-- 网页使用的语言 -->
+<html lang="zh-CN">
+<head>
+    <!-- 指定字符集 -->
+    <meta charset="utf-8">
+    <!-- 使用Edge最新的浏览器的渲染方式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- viewport视口：网页可以根据设置的宽度自动进行适配，在浏览器的内部虚拟一个容器，容器的宽度与设备的宽度相同。
+    width: 默认宽度与设备的宽度相同
+    initial-scale: 初始的缩放比，为1:1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap模板</title>
+
+    <!-- 1. 导入CSS的全局样式 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 2. jQuery导入，建议使用1.9以上的版本 -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <!-- 3. 导入bootstrap的js文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        td, th {
+            text-align: center;
+        }
+    </style>
+    <script src="js/vuejs-2.5.16.js"></script>
+    <script src="js/getParameter.js"></script>
+    <script src="js/axios-0.18.0.js"></script>
+
+</head>
+<body>
+<div id="app">
+<div class="container">
+    <h3 style="text-align: center">显示所有用户</h3>
+    <table border="1" class="table table-bordered table-hover">
+        <tr class="success">
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>籍贯</th>
+            <th>QQ</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(ry,index) in page.list">
+            <td v-html="index+1"></td>
+            <td v-html="ry.name"></td>
+            <td v-html="ry.sex"></td>
+            <td v-html="ry.age"></td>
+            <td v-html="ry.address"></td>
+            <td v-html="ry.qq"></td>
+            <td v-html="ry.email"></td>
+            <td><a class="btn btn-default btn-sm" href="修改联系人.html">修改</a>&nbsp;<a class="btn btn-default btn-sm" href="修改联系人.html">删除</a></td>
+        </tr>
+
+        <tr>
+            <td colspan="8" align="center">
+				<ul class="pagination success">
+					<li v-if="ff"class="disabled"><a :href="'list_page.html?currentPage='+(page.currentPage-1)+'&pageSize='+page.pageSize" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					
+					<li v-for="(u,index) in page.totalPage":class="{active:page.currentPage == index+1}"><a v-html="index+1" :href="'list_page.html?currentPage='+(index+1)+'&pageSize='+page.pageSize"></a></li>
+					
+					<li v-if="uu"><a  :href="'list_page.html?currentPage='+(page.currentPage+1)+'&pageSize='+page.pageSize" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+				</ul>
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            page:{},
+            ff:true,
+            uu:true
+        },
+        methods:{
+           f1(){
+               var currentPage = parseInt(getParameter("currentPage"));
+               var pageSize = parseInt(getParameter("pageSize"));
+               axios.get("hello?action=pagefye&currentPage="+currentPage+"&pageSize="+pageSize).then(response=>{
+                   this.page=response.data
+                 if(currentPage<=1){
+                     this.ff=false;
+                 }else {
+                     this.ff=true
+                 }
+                 if(currentPage>=this.page.totalPage){
+                     this.uu=false
+                 }else{
+                     this.uu=true
+                 }
+
+               }).catch(error=>{
+                   console.log("服务器出现了bug")
+               })
+
+           }
+        },
+        created(){
+            this.f1();
+        }
+    });
+
+</script>
+</body>
+</html>

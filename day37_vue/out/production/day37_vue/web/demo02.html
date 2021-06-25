@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<div id="app">
+  <form>
+      <input type="text" name="username" v-model="use.username"></br>
+      <input type="text" name="age" v-model="use.age"></br>
+      <input type="text" name="sex" v-model="use.sex"></br>
+      <input type="text" name="like" v-model="use.like"></br>
+      <input type="button" value="查看" @click="f1()">
+      <input type="button"value="提交" @click="f2()">
+  </form>
+</div>
+<script>
+  var vue = new Vue({
+    el:"#app",
+    data:{
+      use:{
+        username:"张三",
+        age:12,
+        sex:"男",
+        like:"看哆啦A梦"
+      }
+      },
+    methods:{
+      f1(){
+       console.log(this.use)
+      },
+      f2(){
+        var use={
+          username:"栗色",
+          age:99,
+          sex:'女123',
+          like:"图文",
+        }
+        this.use=use;
+      }
+    }
+  });
+
+</script>
+</body>
+</html>
